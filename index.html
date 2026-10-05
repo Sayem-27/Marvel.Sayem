@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Secret Headquarters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Top Badge -->
+        <div class="home-badge">TOP SECRET FORM</div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <img src="Image\Gemini_Generated_Image_ndpmbgndpmbgndpm.jpeg" alt="Marvel HQ Logo">
+            </div>
+            <h1>Marvel Secret Headquarters</h1>
+            <p class="subtitle">Superpower Screening & Hero Recruitment Drive</p>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Red Funny Note -->
+        <div class="red-funny-note">
+            <h3>WARNING: THINK BEFORE YOU APPLY!</h3>
+            <p>If Thanos snaps his fingers again, we are NOT responsible! Also, joining the Avengers does NOT guarantee free shawarma with Iron Man.</p>
+        </div>
+
+        <!-- Step Indicator -->
+        <div class="step-indicator" id="stepIndicator">
+            <span id="step-badge" class="step-badge">Page 1 of 3</span>
+        </div>
+
+        <!-- Multi-Page Form -->
+        <form id="heroForm" onsubmit="handleFormSubmit(event)">
+
+            <!-- PAGE 1 -->
+            <div id="page-1" class="form-page">
+                <h2 class="section-title">1. Secret Identity Information</h2>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required placeholder="e.g. Peter Parker">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="contact">Contact No.</label>
+                        <input type="tel" id="contact" required placeholder="In case Hulk smashes your device">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="occupation">Current Occupation</label>
+                        <input type="text" id="occupation" required placeholder="e.g. Photographer / Unemployed Genius">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="country">Country</label>
+                        <select id="country" required>
+                            <option value="" disabled selected>Select your location</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="United States">United States</option>
+                            <option value="Canada">Canada</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Australia">Australia</option>
+                            <option value="India">India</option>
+                            <option value="Wakanda">Wakanda (Ultra Secret)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group margin-top">
+                    <label for="destination">Where you want to go in as a Marvel member?</label>
+                    <select id="destination" required>
+                        <option value="" disabled selected>Select a destination</option>
+                        <option value="New York">New York (High Alien Danger Zone)</option>
+                        <option value="Los Angeles">Los Angeles (Nice Weather)</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Nova">Nova HQ</option>
+                        <option value="Beta Ray Bill">Beta Ray Bill Realm</option>
+                        <option value="Tigra">Tigra Territory</option>
+                    </select>
+                </div>
+
+                <div class="btn-group margin-top">
+                    <button type="button" class="next-btn" onclick="nextPage(2)">Next Page ➔</button>
+                </div>
+            </div>
+
+            <!-- PAGE 2 -->
+            <div id="page-2" class="form-page hidden">
+                <h2 class="section-title">2. Backstory & Squad Selection</h2>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label for="school">School / University</label>
+                        <input type="text" id="school" required placeholder="Where did you gain your brain?">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="age">Age (Earth Years)</label>
+                        <input type="number" id="age" min="5" max="100" required placeholder="Your current age">
+                    </div>
+                </div>
+
+                <div class="input-group margin-top">
+                    <label for="hero">Which hero would you like to join?</label>
+                    <select id="hero" required>
+                        <option value="" disabled selected>Choose your Team Leader</option>
+                        <option value="Spider-Man">Spider-Man (High Web Maintenance)</option>
+                        <option value="Iron Man">Iron Man (Rich Guy Problems)</option>
+                        <option value="Captain America">Captain America (Strict Discipline)</option>
+                        <option value="Thor">Thor (Requires Lightning Insurance)</option>
+                        <option value="Hulk">Hulk (Expect Broken Tables)</option>
+                        <option value="Ant-Man">Ant-Man (Don't Get Stepped On)</option>
+                    </select>
+                </div>
+
+                <div class="radio-group margin-top">
+                    <label class="radio-label-title">Do you have any special powers?</label>
+                    <div class="radio-options">
+                        <label class="custom-radio"><br>
+                            <input type="radio" name="special_power" value="yes" required>
+                            <span>Yes</span><br>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="special_power" value="no">
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="btn-group margin-top">
+                    <button type="button" class="prev-btn" onclick="prevPage(1)">⬅ Previous</button>
+                    <button type="button" class="next-btn" onclick="nextPage(3)">Next Page ➔</button>
+                </div>
+            </div>
+
+            <!-- PAGE 3 -->
+            <div id="page-3" class="form-page hidden">
+                <h2 class="section-title">3. Legal Waiver & Submission</h2>
+                
+                <div class="radio-group">
+                    <label class="radio-label-title">Gender</label>
+                    <div class="radio-options">
+                        <label class="custom-radio"><br>
+                            <input type="radio" name="gender" value="male" required>
+                            <span>Male</span><br>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="gender" value="female">
+                            <span>Female</span><br>
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="gender" value="other">
+                            <span>Alien / Other</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="note margin-top">
+                    <p><strong>Official Legal Statement:</strong> By clicking submit, you promise not to leak Nick Fury's eye-patch collection or blow up the Avengers HQ.</p>
+                </div>
+
+                <div class="btn-group margin-top">
+                    <button type="button" class="prev-btn" onclick="prevPage(2)">⬅ Previous</button>
+                    <button type="submit" class="submit-btn">Submit Application Suiiii..</button>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- SUCCESS CARD (Initially Hidden) -->
+        <div id="successCard" class="success-card hidden">
+            <h2>Thanks for Registration! 🎉</h2>
+            <p>Your application has been received. Confirmation email will be sent within <strong>24 hours</strong>!</p>
+            <p class="fun-subtext">Please sit tight while Nick Fury reviews your credentials...</p>
+        </div>
+
+        <footer class="power">
+            Powered by <span>Sayem</span>
+        </footer>
+    </div>
+
+    <!-- MODAL 1: DONKEY MEME -->
+    <div id="memeModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <img src="Image\Screenshot 2026-10-05 104655.png" alt="Donkey Meme" class="meme-img">
+            <h2 class="meme-title">Not that easy! 😂</h2>
+            <p class="meme-text">You wanna be a superhero? You're totally unworthy! 🤣🤣</p>
+            <button class="close-btn" onclick="openCrySelection()">Close & Cry in Corner 😭</button>
+        </div>
+    </div>
+
+    <!-- MODAL 2: MESSI & 4 CRY OPTIONS -->
+    <div id="cryModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="messi-container">
+                <img src="Image\Screenshot 2026-10-05 111156.png" alt="Sad Messi" class="messi-img">
+                <h2 class="meme-title">How to You crying ?😭</h2>
+                <p class="meme-text">Messi Want to watch Your crying... Select an option:</p>
+            </div>
+            
+            <div class="cry-options-grid">
+                <div class="cry-card" onclick="triggerFinalVideo()">
+                    <img src="Image\Screenshot 2026-10-05 111215.png" alt="Crying Guy">
+                    <span>Extreme Crying</span>
+                </div>
+                <div class="cry-card" onclick="triggerFinalVideo()">
+                    <img src="Image\Screenshot 2026-10-05 111233.png" alt="Crying Cat">
+                    <span>River cry</span>
+                </div>
+                <div class="cry-card" onclick="triggerFinalVideo()">
+                    <img src="Image\Screenshot 2026-10-05 111249.png" alt="Crying Jordan">
+                    <span>Sad Thumbs Up</span>
+                </div>
+                <div class="cry-card" onclick="triggerFinalVideo()">
+                    <img src="Image\Screenshot 2026-10-05 111310.png" alt="Lying Crying">
+                    <span>Man</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- FULLSCREEN BROKEN DISPLAY (MODAL 3) -->
+<div id="brokenScreenModal" class="fullscreen-overlay hidden">
+    <img src="Image\WallpaperSun.jpeg" alt="Broken Screen Prank" class="fullscreen-img">
+</div>
+    <script src="index.js"></script>
+</body>
+
+</html>
